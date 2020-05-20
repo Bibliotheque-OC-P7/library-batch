@@ -20,7 +20,12 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring-cloud.version>Hoxton.SR4</spring-cloud.version>
 	</properties>
-
+	<scm>
+		<connection>scm:git:https://github.com/Bibliotheque-OC-P7/library-batch.git</connection>
+		<developerConnection>scm:git:https://github.com/Bibliotheque-OC-P7/library-batch.git</developerConnection>
+		<url>https://github.com/Bibliotheque-OC-P7/library-batch</url>
+		<tag>@{project.version}</tag>
+	</scm>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -75,7 +80,20 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<goals>pre-integration-test</goals>
+					<preparationGoals>package</preparationGoals>
+					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+					<remoteTagging>true</remoteTagging>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
 
 </project>
