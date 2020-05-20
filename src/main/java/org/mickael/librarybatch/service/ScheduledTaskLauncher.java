@@ -16,7 +16,6 @@ public class ScheduledTaskLauncher {
     private EmailService emailService;
     private LoanStatusService loanStatusService;
     private FeignProxy feignProxy;
-    //private ReservationService reservationService;
 
 
     @Autowired
@@ -38,7 +37,6 @@ public class ScheduledTaskLauncher {
     public void runScheduledTask(){
         String accessToken = feignProxy.login(new AccountLoginBean()).getHeaders().getFirst("Authorization");
         loanStatusService.updateLoanStatus(accessToken);
-        //reservationService.updateListReservation(accessToken);
         emailService.sendRecoveryMail(accessToken);
     }
 
@@ -53,7 +51,6 @@ public class ScheduledTaskLauncher {
     public void runScheduledTask(){
         //String accessToken = feignLoanProxy.login(new AccountLoginBean()).getHeaders().getFirst("Authorization");
         loanStatusService.updateLoanStatus();
-        reservationService.updateListReservation();
         emailService.sendRecoveryMail();
     }*/
 

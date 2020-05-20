@@ -14,10 +14,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class LoanMail {
 
-/*    private String email;
-    private String firstName;
-    private String lastName;
-    private String bookTitle;*/
     private Customer customer;
     private Book book;
     private LocalDate expectedReturn;

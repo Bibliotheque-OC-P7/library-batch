@@ -33,23 +33,5 @@ public interface FeignProxy {
     Integer numberOfCopyAvailableForBook(@PathVariable("bookId")  Integer bookId, @RequestHeader("Authorization") String accessToken);
 
 
-    @GetMapping("/library-ms-reservation/api/reservations")
-    List<Reservation> getReservations(@RequestHeader("Authorization") String accessToken);
-
-    @GetMapping("/library-ms-reservation/api/reservations/customer/{customerId}/book/{bookId}/")
-    boolean checkIfReservationExist(@PathVariable("customerId") Integer customerId, @PathVariable("bookId") Integer bookId, @RequestHeader("Authorization") String accessToken);
-
-    @DeleteMapping("/library-ms-reservation/api/reservations/customer/{customerId}/book/{bookId}/")
-    void deleteReservationAfterLoan(@PathVariable("customerId") Integer customerId, @PathVariable("bookId") Integer bookId, @RequestHeader("Authorization") String accessToken);
-
-    @DeleteMapping("/library-ms-reservation/api/reservations/{id}")
-    void deleteReservationAfterTwoDays(@PathVariable("id") Integer id, @RequestHeader("Authorization") String accessToken);
-
-
-    @PutMapping("/library-ms-reservation/api/reservations/book/{bookId}")
-    void updateReservation(@PathVariable("bookId") Integer bookId, @RequestHeader("Authorization") String accessToken);
-
-    @PutMapping("/library-ms-reservation/api/reservations/book/{bookId}/refresh")
-    void updateDateReservation(@PathVariable("bookId") Integer bookId, @RequestHeader("Authorization") String accessToken);
 
 }
